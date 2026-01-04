@@ -1,16 +1,31 @@
 ---
+/**
+ * Página principal de la invitación.
+ * Aquí defines la fecha y ordenas las secciones.
+ */
+import BaseLayout from "../layout/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Historia from "../components/Historia.astro";
+import Detalles from "../components/Detalles.astro";
+import CeremoniaVenueRegalos from "../components/CeremoniaVenueRegalos.astro";
+import Preguntas from "../components/Preguntas.astro";
 
+const weddingDate = "02 Mayo 2026";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Estefany & Rubén · Nuestra boda">
+  <!-- Foto del puente + padres + fecha -->
+  <Hero weddingDate={weddingDate} />
+
+  <!-- Nuestra historia -->
+  <Historia />
+
+  <!-- Pequeños detalles, gran día… -->
+  <Detalles />
+
+  <!-- Bloque negro con ceremonia, venue y mesas de regalo -->
+  <CeremoniaVenueRegalos />
+
+  <!-- Preguntas frecuentes -->
+  <Preguntas />
+</BaseLayout>

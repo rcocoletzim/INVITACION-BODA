@@ -1,0 +1,60 @@
+---
+/**
+ * Hero.astro — video de fondo full-bleed + monograma centrado
+ * Props opcionales:
+ *   monogramSrc: ruta del PNG/SVG del monograma
+ */
+const { monogramSrc = "/images/monograma-er.png" } = Astro.props;
+---
+
+<section class="relative min-h-svh overflow-hidden bg-black text-white">
+  <!-- Capa de VIDEO: ocupa 100dvw y se centra al viewport; overscan lateral 1px -->
+  <div class="absolute left-1/2 top-0 z-0 h-full w-[100dvw] -translate-x-1/2">
+    <div class="absolute -inset-x-px top-0 bottom-0">
+      <video
+        id="heroVideo"
+        class="block h-full w-full object-cover [filter:grayscale(1)]"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="/images/hero-poster.png"
+      >
+        <!-- Usa MP4 (obligado) y opcionalmente WebM si lo tienes -->
+        <source src="/video/hero.mp4"  type="video/mp4" />
+        Tu navegador no soporta video HTML5.
+      </video>
+
+      <!-- Overlay para legibilidad del monograma -->
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 to-black/80"></div>
+    </div>
+  </div>
+
+  <!-- CONTENIDO: monograma centrado X/Y -->
+  <div class="pointer-events-none relative z-10 grid min-h-svh place-items-center">
+    <img
+      src={monogramSrc}
+      alt="Monograma Estefany & Rubén"
+      class="block opacity-95 w-[80vmin] max-w-[800px] md:w-[60vmin] md:max-w-[700px]"
+      decoding="async"
+      loading="eager"
+    />
+  </div>
+
+  <!-- Reintento suave de reproducción (si algún navegador bloquea autoplay) -->
+  <script>
+    const v = document.getElementById('heroVideo');
+    if (v) {
+      v.play().catch(() => {
+        const resume = () => {
+          v.play().catch(() => {});
+          window.removeEventListener('click', resume, { capture: true });
+          window.removeEventListener('touchstart', resume, { capture: true });
+        };
+        window.addEventListener('click', resume, { capture: true, once: true });
+        window.addEventListener('touchstart', resume, { capture: true, once: true });
+      });
+    }
+  </script>
+</section>

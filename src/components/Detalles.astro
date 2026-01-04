@@ -1,0 +1,80 @@
+---
+/**
+ * Detalles.astro — “Pequeños detalles, gran día…”
+ * Versión más parecida a Canva: contenedor angosto + imágenes grandes.
+ */
+---
+
+<section id="detalles" class="bg-[#EEEDE7] py-24">
+  <!-- Contenedor más angosto -->
+  <div class="mx-auto max-w-5xl px-4">
+    <!-- Título -->
+    <h2
+        class="mb-16 text-center [font-family:'ShelleyScript'] leading-none
+         text-[52px] sm:text-[40px] md:text-[52px] lg:text-[64px] xl:text-[76.3px]"
+    >
+      Pequeños detalles, gran día…
+    </h2>
+
+    <!-- Grid -->
+    <div
+      class="grid gap-16 md:grid-cols-3
+             items-start justify-items-center"
+    >
+      <!-- Detalle 1 -->
+      <article class="flex flex-col items-center text-center max-w-[32ch]">
+        <img
+          src="/images/detalle-queretaro.png"
+          alt="Flores Querétaro"
+          class="mb-8 h-auto
+                 w-45 md:w-50 lg:w-60"
+          loading="lazy"
+          decoding="async"
+        />
+        <h3 class="mb-3 font-playfair text-[clamp(1.7rem,2.3vw,2.0rem)]">
+          Y sí es en Querétaro..
+        </h3>
+        <p class="font-espresso text-[clamp(1rem,1.1vw,1.15rem)] leading-8 text-[#2a2a2a]">
+          Hemos hecho de Querétaro el lugar donde nuestra historia da un nuevo paso y el
+          “para siempre”.
+        </p>
+      </article>
+
+      <!-- Detalle 2 -->
+      <article class="flex flex-col items-center text-center max-w-[32ch]">
+        <img
+          src="/images/detalle-dresscode.png"
+          alt="Flores Dress Code"
+          class="mb-8 h-auto
+                 w-45 md:w-50 lg:w-60"
+          loading="lazy"
+          decoding="async"
+        />
+        <h3 class="mb-3 font-playfair text-[clamp(1.7rem,2.3vw,2.0rem)]">
+          Dress Code
+        </h3>
+        <p class="font-espresso text-[clamp(1rem,1.1vw,1.15rem)] leading-8 text-[#2a2a2a]">
+          La verdadera etiqueta es venir con buen ánimo, cariño y muchas ganas de fiesta.
+        </p>
+      </article>
+
+      <!-- Detalle 3 -->
+      <article class="flex flex-col items-center text-center max-w-[32ch]">
+        <img
+          src="/images/detalle-recuerda.png"
+          alt="Flores Recuerda"
+          class="mb-8 h-auto
+                 w-45 md:w-50 lg:w-60"
+          loading="lazy"
+          decoding="async"
+        />
+        <h3 class="mb-3 font-playfair text-[clamp(1.7rem,2.3vw,2.0rem)]">
+          Recuerda
+        </h3>
+        <p class="font-espresso text-[clamp(1rem,1.1vw,1.15rem)] leading-8 text-[#2a2a2a]">
+          En esta ocasión queremos ver a los papás siendo novios otra vez…
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
