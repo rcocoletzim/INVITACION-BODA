@@ -13,7 +13,7 @@ const { monogramSrc = "/images/monograma-er.png" } = Astro.props;
     <div class="absolute -inset-x-px top-0 bottom-0">
       <video
         id="heroVideo"
-        class="block h-full w-full object-cover [filter:grayscale(1)]"
+        class="block h-full w-full object-cover object-[45%_center] md:object-center [filter:grayscale(1)]"
         autoplay
         muted
         loop
@@ -36,7 +36,7 @@ const { monogramSrc = "/images/monograma-er.png" } = Astro.props;
     <img
       src={monogramSrc}
       alt="Monograma Estefany & Rubén"
-      class="block opacity-95 w-[80vmin] max-w-[800px] md:w-[60vmin] md:max-w-[700px]"
+      class="block opacity-95 w-[120vmin] max-w-[800px] -translate-x-[12%] md:translate-x-0 md:w-[60vmin] md:max-w-[700px]"
       decoding="async"
       loading="eager"
     />

@@ -1,0 +1,82 @@
+---
+// src/components/BoletoChecker.astro
+import { dbInvitados } from "../data/listaInvitados";
+---
+
+<section class="py-16 px-4 bg-stone-100 text-center">
+  <div class="max-w-md mx-auto">
+    <h2 class="text-5xl font-allura text-gray-800 mb-6">
+      Pases y Accesos
+    </h2>
+    
+    <p class="font-espresso text-xl text-gray-600 mb-8">
+      Ingresa el código que viene en tu invitación para ver tus lugares asignados.
+    </p>
+
+    <div class="flex flex-col gap-4 items-center">
+      <input 
+        type="text" 
+        id="codigoInput" 
+        placeholder="Escribe tu código aquí" 
+        class="w-full px-4 py-3 text-center uppercase border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 font-espresso tracking-wider"
+      />
+      
+      <button 
+        id="btnVerificar"
+        class="bg-black text-white px-8 py-2 rounded-full font-espresso hover:bg-gray-800 transition-colors uppercase tracking-widest text-sm"
+      >
+        Verificar
+      </button>
+    </div>
+
+    <div id="resultado" class="hidden mt-8 p-6 bg-white shadow-lg rounded-xl border border-gray-100 animate-fade-in">
+      <p class="text-gray-500 font-espresso text-lg">Hola,</p>
+      <h3 id="nombreInvitado" class="text-3xl font-allura text-gray-900 my-2">Familia</h3>
+      <div class="my-4 border-t border-b border-gray-100 py-3">
+        <span class="text-gray-400 font-espresso text-sm uppercase tracking-widest">Tienes asignados</span>
+        <p id="cantidadBoletos" class="text-4xl font-serif text-gray-800">0</p>
+        <span class="text-gray-400 font-espresso text-sm uppercase tracking-widest">Boletos</span>
+      </div>
+    </div>
+
+    <p id="errorMsg" class="hidden mt-4 text-red-800 font-espresso bg-red-50 p-2 rounded">
+      Código no encontrado. Intenta nuevamente.
+    </p>
+  </div>
+</section>
+
+<script define:vars={{ dbInvitados }}>
+  // Lógica del cliente (se ejecuta en el navegador)
+  const btn = document.getElementById('btnVerificar');
+  const input = document.getElementById('codigoInput');
+  const resultadoDiv = document.getElementById('resultado');
+  const errorMsg = document.getElementById('errorMsg');
+  const nombreTxt = document.getElementById('nombreInvitado');
+  const boletosTxt = document.getElementById('cantidadBoletos');
+
+  function verificar() {
+    // Limpiar mensajes previos
+    resultadoDiv.classList.add('hidden');
+    errorMsg.classList.add('hidden');
+
+    const codigo = input.value.trim().toUpperCase(); // Normalizamos a mayúsculas
+
+    if (dbInvitados[codigo]) {
+      // ¡Encontrado!
+      const info = dbInvitados[codigo];
+      nombreTxt.textContent = info.nombre;
+      boletosTxt.textContent = info.pases;
+      resultadoDiv.classList.remove('hidden');
+    } else {
+      // No encontrado
+      errorMsg.classList.remove('hidden');
+    }
+  }
+
+  btn.addEventListener('click', verificar);
+  
+  // Permitir dar Enter en el input
+  input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') verificar();
+  });
+</script>
