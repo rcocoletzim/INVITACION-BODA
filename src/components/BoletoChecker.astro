@@ -3,13 +3,12 @@
 import { dbInvitados } from "../data/listaInvitados";
 ---
 
-<section class="py-16 px-4 bg-stone-100 text-center">
-  <div class="max-w-md mx-auto">
-    <h2 class="text-5xl font-allura text-gray-800 mb-6">
+<section class="py-16 px-4 bg-[#EEEDE7] text-center"> <div class="max-w-md mx-auto">
+    <h2 class="mb-6 font-playfair uppercase tracking-[0.20em] text-3xl md:text-4xl text-gray-900">
       Pases y Accesos
     </h2>
     
-    <p class="font-espresso text-xl text-gray-600 mb-8">
+    <p class="font-espresso text-xl text-gray-600 mb-8 leading-relaxed">
       Ingresa el código que viene en tu invitación para ver tus lugares asignados.
     </p>
 
@@ -17,36 +16,41 @@ import { dbInvitados } from "../data/listaInvitados";
       <input 
         type="text" 
         id="codigoInput" 
-        placeholder="Escribe tu código aquí" 
-        class="w-full px-4 py-3 text-center uppercase border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 font-espresso tracking-wider"
+        placeholder="ESCRIBE TU CÓDIGO AQUÍ" 
+        class="w-full px-4 py-3 text-center uppercase border border-gray-300 bg-white rounded-none focus:outline-none focus:border-gray-500 font-espresso tracking-widest text-lg placeholder:text-gray-300 transition-colors"
       />
       
       <button 
         id="btnVerificar"
-        class="bg-black text-white px-8 py-2 rounded-full font-espresso hover:bg-gray-800 transition-colors uppercase tracking-widest text-sm"
+        class="bg-black text-white px-10 py-3 rounded-none font-playfair hover:bg-gray-800 transition-colors uppercase tracking-[0.15em] text-sm"
       >
         Verificar
       </button>
     </div>
 
-    <div id="resultado" class="hidden mt-8 p-6 bg-white shadow-lg rounded-xl border border-gray-100 animate-fade-in">
-      <p class="text-gray-500 font-espresso text-lg">Hola,</p>
-      <h3 id="nombreInvitado" class="text-3xl font-allura text-gray-900 my-2">Familia</h3>
-      <div class="my-4 border-t border-b border-gray-100 py-3">
+    <div id="resultado" class="hidden mt-10 p-8 bg-white border border-gray-200 shadow-sm animate-fade-in">
+      <p class="text-gray-500 font-espresso text-xl">Hola,</p>
+      
+      <h3 id="nombreInvitado" class="text-2xl md:text-3xl font-playfair uppercase tracking-widest text-black my-4">
+        Familia
+      </h3>
+
+      <div class="my-6 border-t border-b border-gray-200 py-4">
         <span class="text-gray-400 font-espresso text-sm uppercase tracking-widest">Tienes asignados</span>
-        <p id="cantidadBoletos" class="text-4xl font-serif text-gray-800">0</p>
+        
+        <p id="cantidadBoletos" class="text-5xl font-playfair text-black my-2">0</p>
+        
         <span class="text-gray-400 font-espresso text-sm uppercase tracking-widest">Boletos</span>
       </div>
     </div>
 
-    <p id="errorMsg" class="hidden mt-4 text-red-800 font-espresso bg-red-50 p-2 rounded">
+    <p id="errorMsg" class="hidden mt-6 text-red-800 font-espresso text-lg bg-red-50 p-3 border border-red-100">
       Código no encontrado. Intenta nuevamente.
     </p>
   </div>
 </section>
 
 <script define:vars={{ dbInvitados }}>
-  // Lógica del cliente (se ejecuta en el navegador)
   const btn = document.getElementById('btnVerificar');
   const input = document.getElementById('codigoInput');
   const resultadoDiv = document.getElementById('resultado');
@@ -55,27 +59,23 @@ import { dbInvitados } from "../data/listaInvitados";
   const boletosTxt = document.getElementById('cantidadBoletos');
 
   function verificar() {
-    // Limpiar mensajes previos
     resultadoDiv.classList.add('hidden');
     errorMsg.classList.add('hidden');
 
-    const codigo = input.value.trim().toUpperCase(); // Normalizamos a mayúsculas
+    const codigo = input.value.trim().toUpperCase();
 
     if (dbInvitados[codigo]) {
-      // ¡Encontrado!
       const info = dbInvitados[codigo];
       nombreTxt.textContent = info.nombre;
       boletosTxt.textContent = info.pases;
       resultadoDiv.classList.remove('hidden');
     } else {
-      // No encontrado
       errorMsg.classList.remove('hidden');
     }
   }
 
   btn.addEventListener('click', verificar);
   
-  // Permitir dar Enter en el input
   input.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') verificar();
   });
