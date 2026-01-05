@@ -1,14 +1,11 @@
 ---
 /**
- * Hero.astro — video de fondo full-bleed + monograma centrado
- * Props opcionales:
- *   monogramSrc: ruta del PNG/SVG del monograma
+ * Hero.astro — video de fondo full-bleed + monograma + texto
  */
 const { monogramSrc = "/INVITACION-BODA/images/monograma-er.png" } = Astro.props;
 ---
 
 <section class="relative min-h-svh overflow-hidden bg-black text-white">
-  <!-- Capa de VIDEO: ocupa 100dvw y se centra al viewport; overscan lateral 1px -->
   <div class="absolute left-1/2 top-0 z-0 h-full w-[100dvw] -translate-x-1/2">
     <div class="absolute -inset-x-px top-0 bottom-0">
       <video
@@ -21,28 +18,35 @@ const { monogramSrc = "/INVITACION-BODA/images/monograma-er.png" } = Astro.props
         preload="metadata"
         poster="/INVITACION-BODA/images/hero-poster.png"
       >
-        <!-- Usa MP4 (obligado) y opcionalmente WebM si lo tienes -->
-        <source src="/INVITACION-BODA/video/hero.mp4"  type="video/mp4" />
+        <source src="/INVITACION-BODA/video/hero.mp4" type="video/mp4" />
         Tu navegador no soporta video HTML5.
       </video>
 
-      <!-- Overlay para legibilidad del monograma -->
-      <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 to-black/80"></div>
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60"></div>
     </div>
   </div>
 
-  <!-- CONTENIDO: monograma centrado X/Y -->
-  <div class="pointer-events-none relative z-10 grid min-h-svh place-items-center">
+  <div class="pointer-events-none relative z-10 flex min-h-svh flex-col items-center justify-center pb-12">
+    
     <img
       src={monogramSrc}
       alt="Monograma Estefany & Rubén"
-      class="block opacity-95 w-[120vmin] max-w-[800px] -translate-x-[12%] md:translate-x-0 md:w-[60vmin] md:max-w-[700px]"
+      class="block opacity-95 w-[90vmin] max-w-[600px] md:w-[50vmin] md:max-w-[500px] -translate-y-8 md:-translate-y-12 object-contain drop-shadow-2xl"
       decoding="async"
       loading="eager"
     />
+
+    <div class="text-center -mt-10 md:-mt-16 flex flex-col gap-1 md:gap-3 animate-fade-in-up">
+      <h1 class="font-['Pinyon_Script'] text-5xl md:text-7xl lg:text-8xl leading-none text-white drop-shadow-md">
+        Estefany <span class="text-3xl md:text-5xl align-middle mx-1">+</span> Ruben
+      </h1>
+      <p class="font-['Pinyon_Script'] text-3xl md:text-5xl lg:text-6xl text-white/90 drop-shadow-sm mt-2">
+        02 / 05 / 2026
+      </p>
+    </div>
+
   </div>
 
-  <!-- Reintento suave de reproducción (si algún navegador bloquea autoplay) -->
   <script>
     const v = document.getElementById('heroVideo');
     if (v) {

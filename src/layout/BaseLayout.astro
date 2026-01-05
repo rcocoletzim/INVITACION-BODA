@@ -5,21 +5,25 @@ const { title = "Estefany & Rubén · Nuestra boda" } = Astro.props;
 
 <html lang="es" class="overflow-x-hidden">
   <head>
-    <meta charset="utf-8" />
-    <title>{title}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <title>{title}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Pinyon+Script&display=swap" rel="stylesheet">
-  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&family=Playfair+Display:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+</head>
   <body class="m-0 overflow-x-hidden bg-[#EEEDE7] text-ink font-mont antialiased">
     <main class="bg-[#EEEDE7]">
       <slot />
     </main>
 
-    <!-- AUDIO GLOBAL -->
-    <audio id="siteAudio" src={"/INVITACION-BODA/audio/cancion.mp3"} preload="auto" loop></audio>
+    <audio id="siteAudio" src="/INVITACION-BODA/audio/cancion.mp3" preload="auto" loop></audio>
     <button id="siteAudioBtn"
       class="fixed left-4 bottom-4 z-[9999] hidden items-center gap-2 rounded-full border border-[#c9bda9] bg-[#EEEDE7] px-4 py-2 text-sm shadow-lg hover:bg-[#efe7da]"
       aria-label="Reproducir música">
@@ -44,7 +48,6 @@ const { title = "Estefany & Rubén · Nuestra boda" } = Astro.props;
       btn?.addEventListener('click', async () => {
         try { await audio.play(); btn.classList.add('hidden'); } catch {}
       });
-
       document.addEventListener('visibilitychange', () => {
         if (document.hidden) audio.pause(); else audio.play().catch(()=>{});
       });

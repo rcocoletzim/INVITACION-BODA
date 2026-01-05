@@ -7,7 +7,7 @@ export default {
         allura: ["ShelleyScript", "cursive"],           // para tu título script
         buffalo: ["Buffalo", "sans-serif"],             // por si quieres usarla
         espresso: ['"Compotes Espresso"', "serif"],     // para el cuerpo de texto
-        optima: ["Marcellus", "serif"],
+        pinyon: ['"Pinyon Script"', "cursive"],
       },
     },
   },
