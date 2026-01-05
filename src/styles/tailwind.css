@@ -3,33 +3,26 @@
 /* Fuentes locales opcionales */
 @font-face{
   font-family: "Buffalo";
-  src: url("/fonts/Buffalo.woff2") format("woff2");
+  src: url("/INVITACION-BODA/fonts/Buffalo.woff2") format("woff2");
   font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face{
   font-family: "Compotes Espresso";
-  src: url("/fonts/compotes-espresso.woff2") format("woff2"),
-       url("/fonts/compotes-espresso.otf") format("opentype");
+  src: url("/INVITACION-BODA/fonts/compotes-espresso.woff2") format("woff2"),
+       url("/INVITACION-BODA/fonts/compotes-espresso.otf") format("opentype");
   font-weight: 400; font-style: normal; font-display: swap;
 }
 
 @font-face {
   font-family: "ShelleyScript";
-  src: url("/fonts/ShelleyScriptRegular.otf") format("opentype");
+  src: url("/INVITACION-BODA/fonts/ShelleyScriptRegular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SharisRegular";
-  src: url("/fonts/sharis-regular.ttf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Optima";
-  src: url("/fonts/Optima.TTF") format("opentype");
+  src: url("/INVITACION-BODA/fonts/sharis-regular.ttf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
