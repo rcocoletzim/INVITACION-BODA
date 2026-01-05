@@ -17,7 +17,7 @@ import { dbInvitados } from "../data/listaInvitados";
         type="text" 
         id="codigoInput" 
         placeholder="ESCRIBE TU CÓDIGO AQUÍ" 
-        class="w-full px-4 py-3 text-center uppercase border border-gray-300 bg-white rounded-none focus:outline-none focus:border-gray-500 font-espresso tracking-widest text-lg placeholder:text-gray-300 transition-colors"
+        class="w-full px-4 py-3 text-center uppercase border border-gray-300 bg-white rounded-none focus:outline-none focus:border-gray-500 font-serif tracking-widest text-lg placeholder:text-gray-300 transition-colors"
       />
       
       <button 
@@ -29,22 +29,22 @@ import { dbInvitados } from "../data/listaInvitados";
     </div>
 
     <div id="resultado" class="hidden mt-10 p-8 bg-white border border-gray-200 shadow-sm animate-fade-in">
-      <p class="text-gray-500 font-espresso text-xl">Hola,</p>
+      <p class="text-gray-500 font-serif text-xl">Hola,</p>
       
       <h3 id="nombreInvitado" class="text-2xl md:text-3xl font-serif uppercase tracking-widest text-black my-4">
         Familia
       </h3>
 
       <div class="my-6 border-t border-b border-gray-200 py-4">
-        <span class="text-gray-400 font-espresso text-sm uppercase tracking-widest">Tienes asignados</span>
+        <span class="text-gray-400 font-serif text-sm uppercase tracking-widest">Tienes asignados</span>
         
         <p id="cantidadBoletos" class="text-5xl font-serif text-black my-2">0</p>
         
-        <span class="text-gray-400 font-espresso text-sm uppercase tracking-widest">Boletos</span>
+        <span class="text-gray-400 font-serif text-sm uppercase tracking-widest">Boletos</span>
       </div>
     </div>
 
-    <p id="errorMsg" class="hidden mt-6 text-red-800 font-espresso text-lg bg-red-50 p-3 border border-red-100">
+    <p id="errorMsg" class="hidden mt-6 text-red-800 font-serif text-lg bg-red-50 p-3 border border-red-100">
       Código no encontrado. Intenta nuevamente.
     </p>
   </div>
