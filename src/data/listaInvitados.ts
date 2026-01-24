@@ -9,7 +9,7 @@ interface InfoInvitado {
 // La clave (izquierda) es el código que el invitado escribe.
 export const dbInvitados: Record<string, InfoInvitado> = {
   "SILVA-MATA": { nombre: "Familia Silva Mata", pases: 5 },
-  "JUAN-LOPEZ":    { nombre: "Juan López y Acompañante", pases: 2 },
+  "ARREDONDO-COCOLETZI":    { nombre: "Familia Silva Mata", pases: 6 },
   "SOLO-YO":       { nombre: "Mi Mejor Amigo", pases: 1 },
   "TEST1234":      { nombre: "Invitado de Prueba", pases: 5 },
 };
