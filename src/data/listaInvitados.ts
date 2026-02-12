@@ -11,5 +11,5 @@ export const dbInvitados: Record<string, InfoInvitado> = {
   "SILVA-MATA": { nombre: "Familia Silva Mata", pases: 5 },
   "ARREDONDO-COCOLETZI":    { nombre: "Familia Arredondo Cocoletzi", pases: 6 },
   "PATY":       { nombre: "Señora Paty", pases: 2 },
-  "TEST1234":      { nombre: "Invitado de Prueba", pases: 5 },
+  "SANCHEZ-MARQUES":      { nombre: "Fam. Sanchez Marques", pases: 4 },
 };
